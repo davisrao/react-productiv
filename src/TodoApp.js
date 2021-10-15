@@ -36,14 +36,6 @@ function TodoApp({ initialTodos }) {
     setToDoList(initialTodos => initialTodos.filter(todo => todo.id !== id));
   }
 
-
-
-  /** check for todos in list, returns T if yes, returns false if none*/
-  function checkForTodos() {
-    return Boolean(toDoList.length);
-  }
-  const toDoCheck = checkForTodos();
-
   //if no todos, display messages -- otherwise display the todos + top todo
   return (
     <main className="TodoApp">
@@ -51,9 +43,9 @@ function TodoApp({ initialTodos }) {
 
         <div className="col-md-6">
 
-          {toDoCheck &&
+          {toDoList.length>0 &&
             <EditableTodoList toDos={toDoList} update={update} remove={remove} />}
-          {!toDoCheck && <span className="text-muted">You have no todos.</span>}
+          {!toDoList.length>0 && <span className="text-muted">You have no todos.</span>}
         </div>
 
         <div className="col-md-6">
