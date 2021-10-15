@@ -3,6 +3,7 @@ import TodoApp from "./TodoApp";
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import { v4 as uuid } from "uuid";
 
 /** Site application.
  *
@@ -22,19 +23,19 @@ function App() {
         <section className="container mt-4">
           <TodoApp initialTodos={[
             {
-              id: 1,
+              id:uuid(),
               title: "Code!",
               description: "Write some code",
               priority: 2,
             },
             {
-              id: 2,
+              id:uuid(),
               title: "Make dinner",
               description: "Cook something healthy",
               priority: 1,
             },
             {
-              id: 3,
+              id:uuid(),
               title: "Go to bed",
               description: "In bed by 11:15",
               priority: 3,

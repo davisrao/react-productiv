@@ -10,12 +10,19 @@ import Todo from "./Todo";
  * TodoApp -> TopTodo
  */
 
-function TopTodo() {
-  // lowest-priority # is the highest priority
-  // let top = todos.reduce(
-  //     (acc, cur) => cur.priority < acc.priority ? cur : acc, todos[0]);
+function TopTodo({ todos }) {
+  if (todos.length === 0){
+    return(<span>No to do's yet! Your most pressing one will show up here once you add to the list.</span>)
+  }
 
-  return <Todo  />;
+  let top = todos.reduce(
+    (acc, cur) => cur.priority < acc.priority ? cur : acc, todos[0]);
+  return <Todo 
+            id={top.id} 
+            title={top.title} 
+            description={top.description} 
+            priority={top.priority} 
+            />;
 }
 
 export default TopTodo;
